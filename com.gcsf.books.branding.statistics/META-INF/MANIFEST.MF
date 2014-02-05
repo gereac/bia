@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BIA - Branding Statistics
+Bundle-SymbolicName: com.gcsf.books.branding.statistics
+Bundle-Version: 1.0.0
+Bundle-Localization: resource/localization/plugin
+Bundle-Vendor: GC Software Factory
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

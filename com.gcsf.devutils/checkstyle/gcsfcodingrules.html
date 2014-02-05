@@ -1,0 +1,327 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HMI Codingrules</title>
+<style type="text/css">
+body {
+  margin:           10px;
+  background-color: #FFFFFF;
+  font-family:      Arial, Helvetica, sans-serif;
+  font-size:        11px;
+  font-weight:      normal;
+}
+
+.info {
+  font-size:        11px;
+}
+
+.mono {
+  font-family:      Courier, monospace;
+  font-size:        9px;
+  font-weight:      bold;
+}
+
+table {
+  border: 1px solid #999999;
+    font-size:       11px; 
+}
+
+tr {
+  border: 1px solid #999999;
+}
+
+th {
+  text-align: center;
+  font-weight: bold;
+  color:       white;
+  background-color: #999999;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+td {
+  color:       black;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid #999999
+}
+
+</style>
+</head>
+<body>
+<div class="info">This set of codingrules presents the checkstyle configuration used with this release</div>
+<div class="info">action have to be taken depending on severity level:
+<ul>
+<li>error - to be analyzed and fixed</li>
+<li>warning - this may impact future usage - to be fixed if source is modified next time</li>
+<li>info - reported for usage with other measures only</li>
+</ul>
+</div>
+<table>
+<tr>
+<th width="100">id</th>
+<th>description</th>
+<th>severity</th>
+<th>checker</th>
+</tr>
+<tr>
+<td class="mono">HMI-B01</td>
+<td>Checks for braces around code blocks  </td>
+<td>error</td>
+<td>NeedBraces</td>
+</tr>
+<tr>
+<td class="mono">HMI-B02</td>
+<td>Checks for empty blocks - at least text required  </td>
+<td>error</td>
+<td>EmptyBlock</td>
+</tr>
+<tr>
+<td class="mono">HMI-B03</td>
+<td>Checks for empty blocks - catch blocks without statements  </td>
+<td>info</td>
+<td>EmptyBlock</td>
+</tr>
+<tr>
+<td class="mono">HMI-C01</td>
+<td>Checks Javadoc comments for class and interface definitions  </td>
+<td>info</td>
+<td>JavadocType</td>
+</tr>
+<tr>
+<td class="mono">HMI-C02</td>
+<td>Checks the Javadoc of a public method or constructor  </td>
+<td>info</td>
+<td>JavadocMethod</td>
+</tr>
+<tr>
+<td class="mono">HMI-C03</td>
+<td>Checks that public variables have Javadoc comments  </td>
+<td>info</td>
+<td>JavadocVariable</td>
+</tr>
+<tr>
+<td class="mono">HMI-I01</td>
+<td>Checks for imports from a set of illegal packages:  com.sun.media</td>
+<td>error</td>
+<td>IllegalImport</td>
+</tr>
+<tr>
+<td class="mono">HMI-I02</td>
+<td>Checks for imports from a set of illegal packages:  java.lang.reflect</td>
+<td>error</td>
+<td>IllegalImport</td>
+</tr>
+<tr>
+<td class="mono">HMI-I03</td>
+<td>Checks that there are no import statements that use the * notation  </td>
+<td>error</td>
+<td>AvoidStarImport</td>
+</tr>
+<tr>
+<td class="mono">HMI-I04</td>
+<td>Checks for redundant import statements  </td>
+<td>error</td>
+<td>RedundantImport</td>
+</tr>
+<tr>
+<td class="mono">HMI-I05</td>
+<td>Checks for unused import statements  </td>
+<td>error</td>
+<td>UnusedImports</td>
+</tr>
+<tr>
+<td class="mono">HMI-L01</td>
+<td>Checks correct indentation of Java Code. Use Ctrl-I for correct indentation  </td>
+<td>warning</td>
+<td>Indentation</td>
+</tr>
+<tr>
+<td class="mono">HMI-L02</td>
+<td>Checks that long constants are defined with an upper ell. e.g '1000L'  </td>
+<td>error</td>
+<td>UpperEll</td>
+</tr>
+<tr>
+<td class="mono">HMI-L03</td>
+<td>Checks for TODO: comments  </td>
+<td>error</td>
+<td>TodoComment</td>
+</tr>
+<tr>
+<td class="mono">HMI-M01</td>
+<td>Checks that the order of modifiers conforms to the suggestions in the Java Language specification  </td>
+<td>warning</td>
+<td>ModifierOrder</td>
+</tr>
+<tr>
+<td class="mono">HMI-N01</td>
+<td>Checks that local final variables follow naming convention:  </td>
+<td>warning</td>
+<td>LocalFinalVariableName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N02</td>
+<td>Checks that local variables follow naming convention:  </td>
+<td>warning</td>
+<td>LocalVariableName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N03</td>
+<td>Checks that member variables (non-static fields) follow naming convention: ^my[A-Z][a-zA-Z0-9]*$ </td>
+<td>warning</td>
+<td>MemberName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N04</td>
+<td>Checks that static variables (static, non-final fields) follow naming convention: ^our[A-Z][a-zA-Z0-9]*$ </td>
+<td>warning</td>
+<td>StaticVariableName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N05</td>
+<td>Checks that constants (static final fields) variables follow naming convention: ^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$|^our[A-Z][a-zA-Z0-9]*$ </td>
+<td>warning</td>
+<td>ConstantName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N06</td>
+<td>Checks that parameter names follow naming convention: ^a[n]{0,1}[A-Z][a-zA-Z0-9]*$|^args$ </td>
+<td>warning</td>
+<td>ParameterName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N07</td>
+<td>Checks that method names follow naming convention:  </td>
+<td>warning</td>
+<td>MethodName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N08</td>
+<td>Checks that package names follow naming convention: ^[a-z]+(\.[a-z_][a-z0-9_]*)*$ </td>
+<td>warning</td>
+<td>PackageName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N10</td>
+<td>Checks that class names follow naming convention:  </td>
+<td>warning</td>
+<td>TypeName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N11</td>
+<td>Checks that interface names follow naming convention: ^I[A-Z][a-zA-Z0-9]*$ </td>
+<td>warning</td>
+<td>TypeName</td>
+</tr>
+<tr>
+<td class="mono">HMI-N12</td>
+<td>Checks that abstract class names follow naming convention: ^[A-Z][a-zA-Z0-9]*$ </td>
+<td>warning</td>
+<td>AbstractClassName</td>
+</tr>
+<tr>
+<td class="mono">HMI-P01</td>
+<td>Checks that each variable declaration is in its own statement and on its own line  </td>
+<td>error</td>
+<td>MultipleVariableDeclarations</td>
+</tr>
+<tr>
+<td class="mono">HMI-P02</td>
+<td>According to Code Conventions for the Java Programming Language , the parts of a class or interface declaration should appear in a given order  </td>
+<td>warning</td>
+<td>DeclarationOrder</td>
+</tr>
+<tr>
+<td class="mono">HMI-P03</td>
+<td>Checks that switch statement has "default" clause  </td>
+<td>error</td>
+<td>MissingSwitchDefault</td>
+</tr>
+<tr>
+<td class="mono">HMI-P04</td>
+<td>Check that the default is after all the cases in a switch statement  </td>
+<td>error</td>
+<td>DefaultComesLast</td>
+</tr>
+<tr>
+<td class="mono">HMI-P05</td>
+<td>Checks for fall through in switch statements Finds locations where a case contains Java code - but lacks a break, return, throw or continue statement. The check honores special comments to supress the warning. By default the text "fallthru", "fall through", "fallthrough", "falls through" and "fallsthrough" are recognized (case sensitive).  </td>
+<td>error</td>
+<td>FallThrough</td>
+</tr>
+<tr>
+<td class="mono">HMI-P06</td>
+<td>Detects empty statements (standalone ;)  </td>
+<td>error</td>
+<td>EmptyStatement</td>
+</tr>
+<tr>
+<td class="mono">HMI-P07</td>
+<td>Checks that a local variable or a parameter does not shadow a field that is defined in the same class  </td>
+<td>warning</td>
+<td>HiddenField</td>
+</tr>
+<tr>
+<td class="mono">HMI-P08</td>
+<td>Checks that classes (except abtract one) define a ctor and don't rely on the default one  </td>
+<td>warning</td>
+<td>MissingCtor</td>
+</tr>
+<tr>
+<td class="mono">HMI-P09</td>
+<td>Check for ensuring that for loop control variables are not modified inside the for block  </td>
+<td>error</td>
+<td>ModifiedControlVariable</td>
+</tr>
+<tr>
+<td class="mono">HMI-P10</td>
+<td>Ensure a class is has a package declaration  </td>
+<td>error</td>
+<td>PackageDeclaration</td>
+</tr>
+<tr>
+<td class="mono">HMI-P11</td>
+<td>Restricts the number of return statements to 2  </td>
+<td>info</td>
+<td>ReturnCount</td>
+</tr>
+<tr>
+<td class="mono">HMI-P12</td>
+<td>Checks that string literals are not used with == or !=  </td>
+<td>error</td>
+<td>StringLiteralEquality</td>
+</tr>
+<tr>
+<td class="mono">HMI-P13</td>
+<td>Catching java.lang.Exception, java.lang.Error or java.lang.RuntimeException is to be used for error handling only  </td>
+<td>info</td>
+<td>IllegalCatch</td>
+</tr>
+<tr>
+<td class="mono">HMI-S01</td>
+<td>Checks for  lines longer than 160 characters  </td>
+<td>warning</td>
+<td>LineLength</td>
+</tr>
+<tr>
+<td class="mono">HMI-S02</td>
+<td>Checks for source files longer than 1500 lines  </td>
+<td>warning</td>
+<td>FileLength</td>
+</tr>
+<tr>
+<td class="mono">HMI-S03</td>
+<td>Checks for methods and constructors longer than 150 lines  </td>
+<td>warning</td>
+<td>MethodLength</td>
+</tr>
+<tr>
+<td class="mono">HMI-S04</td>
+<td>Checks the number of parameters of a method or constructor greater than 5  </td>
+<td>warning</td>
+<td>ParameterNumber</td>
+</tr>
+</table>
+</body>
+</html>

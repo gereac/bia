@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<project name="BIA-Application" default="Test">
+
+	<dirname property="dir.antfile" file="${ant.file}" />
+	<property name="dir.Base" value="${dir.antfile}/../.." />
+	<property file="build.properties" />
+	<import file="${dir.Workspace}/com.gcsf.books.build/buildAndTest/include-classpath.xml" />
+
+	<tstamp>
+		<format property="DSTAMP" pattern="dd.MMMM.yyyy" locale="en" />
+		<format property="TSTAMP" pattern="HH:mm" locale="en" />
+	</tstamp>
+
+	<echo message="started: ${DSTAMP} at ${TSTAMP}" />
+
+	<!-- Target: Test -->
+	<!-- ======================== -->
+	<target name="Test">
+		<echo message="[${ant.project.name}] *************************************************" />
+		<echo message="[${ant.project.name}] nothing to do yet ..." />
+		<echo message="[${ant.project.name}] *************************************************" />
+	</target>
+
+	<!-- Target: Check Code Style -->
+	<!-- ======================== -->
+	<target name="Check-Code-Style">
+		<echo message="[${ant.project.name}] *************************************************" />
+		<echo message="[${ant.project.name}] Check-Code-Style target started ..." />
+		<echo message="[${ant.project.name}] *************************************************" />
+
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books}/build.xml" target="Check-Code-Style" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.engine}/build.xml" target="Check-Code-Style" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.language}/build.xml" target="Check-Code-Style" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.loans}/build.xml" target="Check-Code-Style" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.search}/build.xml" target="Check-Code-Style" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.statistics}/build.xml" target="Check-Code-Style" inheritall="false" />
+
+		<!-- agregate the code style output files -->
+		<java classname="com.gcsf.codingrules.XslTransformer" fork="true" classpath="${classpath.com.gcsf.devutils}">
+			<arg value="-outdir=${dir.Checkstyle.out}" />
+			<arg value="-style=${dir.Checkstyle.style}" />
+		</java>
+	</target>
+
+	<!-- Target: Coverage Instrumentation -->
+	<!-- ================================ -->
+	<target name="Coverage-Instrumentation">
+		<echo message="[${ant.project.name}] *************************************************" />
+		<echo message="[${ant.project.name}] Coverage-Instrumentation target started ..." />
+		<echo message="[${ant.project.name}] *************************************************" />
+
+		<mkdir dir="${dir.Emma.coverage}" />
+		<delete includeemptydirs="true">
+			<fileset dir="${dir.Emma.coverage}" includes="**/*" />
+		</delete>
+
+		<mkdir dir="${dir.Emma.instr}" />
+		<delete includeemptydirs="true">
+			<fileset dir="${dir.Emma.instr}" includes="**/*" />
+		</delete>
+
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books}/build.xml" target="Coverage-Instrumentation" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.engine}/build.xml" target="Coverage-Instrumentation" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.language}/build.xml" target="Coverage-Instrumentation" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.loans}/build.xml" target="Coverage-Instrumentation" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.search}/build.xml" target="Coverage-Instrumentation" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.statistics}/build.xml" target="Coverage-Instrumentation" inheritall="false" />
+	</target>
+
+
+	<!-- Target: Coverage Report -->
+	<!-- ======================= -->
+	<target name="Coverage-Report">
+		<echo message="[${ant.project.name}] *************************************************" />
+		<echo message="[${ant.project.name}] Coverage-Report target started ..." />
+		<echo message="[${ant.project.name}] *************************************************" />
+
+		<emma enabled="${emma.enabled}" verbosity="verbose">
+			<report sourcepathref="GCSF_APPLICATION_SRCPATH">
+				<fileset dir="${dir.Emma.coverage}">
+					<include name="**/*.metadata" />
+					<include name="**/*.emma" />
+					<include name="**/*.es" />
+				</fileset>
+
+				<html columns="${output.Emma.columns}" sort="${output.Emma.sort}" metrics="${output.Emma.metrics}" outfile="${output.Emma.html}" />
+			</report>
+		</emma>
+
+		<!-- <echo message="[${ant.project.name}] coverage report: ${THIS_ID} ..." />
+
+		<emma enabled="${emma.enabled}" verbosity="verbose">
+			<report sourcepathref="GCSF_APPLICATION_SRCPATH">
+				<fileset file="${emma.Coverage.Metadata.com.gcsf.books}" />
+				<fileset dir="${dir.Emma.coverage}">
+					<include name="**/*.emma" />
+					<include name="**/*.es" />
+				</fileset>
+
+				<html columns="${output.Emma.columns}" sort="${output.Emma.sort}" metrics="${emma.Coverage.Metrics.com.gcsf.books}" outfile="${emma.Coverage.Html.com.gcsf.books}" />
+			</report>
+		</emma> -->
+
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books}/build.xml" target="Coverage-Report" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.engine}/build.xml" target="Coverage-Report" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.language}/build.xml" target="Coverage-Report" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.loans}/build.xml" target="Coverage-Report" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.search}/build.xml" target="Coverage-Report" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.statistics}/build.xml" target="Coverage-Report" inheritall="false" />
+	</target>
+
+	<!-- Target: PMD Scan -->
+	<!-- ======================== -->
+	<target name="PMD-Scan">
+		<echo message="[${ant.project.name}] *************************************************" />
+		<echo message="[${ant.project.name}] PMD-Scan target started ..." />
+		<echo message="[${ant.project.name}] *************************************************" />
+
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books}/build.xml" target="PMD-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.engine}/build.xml" target="PMD-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.language}/build.xml" target="PMD-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.loans}/build.xml" target="PMD-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.search}/build.xml" target="PMD-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.statistics}/build.xml" target="PMD-Scan" inheritall="false" />
+
+		<!-- agregate the code style output files -->
+		<!-- <java classname="com.gcsf.codingrules.XslTransformer" fork="true" classpath="${classpath.com.gcsf.devutils}">
+				<arg value="-outdir=${dir.Checkstyle.out}" />
+				<arg value="-style=${dir.Checkstyle.style}" />
+			</java> -->
+	</target>
+
+	<!-- Target: FindBugs Scan -->
+	<!-- ======================== -->
+	<target name="FindBugs-Scan">
+		<echo message="[${ant.project.name}] *************************************************" />
+		<echo message="[${ant.project.name}] FindBugs-Scan target started ..." />
+		<echo message="[${ant.project.name}] *************************************************" />
+
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books}/build.xml" target="FindBugs-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.engine}/build.xml" target="FindBugs-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.language}/build.xml" target="FindBugs-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.loans}/build.xml" target="FindBugs-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.search}/build.xml" target="FindBugs-Scan" inheritall="false" />
+		<ant dir="${dir.Workspace}" antfile="${buildpath.com.gcsf.books.statistics}/build.xml" target="FindBugs-Scan" inheritall="false" />
+
+		<!-- agregate the findbugs output files -->
+		<!--  <java classname="com.gcsf.codingrules.XslTransformer" fork="true" classpath="${classpath.com.gcsf.devutils}">
+			<arg value="-outdir=${dir.Checkstyle.out}" />
+			<arg value="-style=${dir.Checkstyle.style}" />
+		</java> -->
+		<unionBugs to="${dir.FindBugs.out}/findbugs.xml">
+			<fileset dir="${dir.FindBugs.out}">
+				<include name="**/*_findbugs.xml">
+				</include>
+			</fileset>
+		</unionBugs>
+		<xslt in="${dir.FindBugs.out}/findbugs.xml" out="${dir.FindBugs.out}/findbugs.html" style="${dir.FindBugs.xsl}/fancy.xsl" />
+	</target>
+
+</project>

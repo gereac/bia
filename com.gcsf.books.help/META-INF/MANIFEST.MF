@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name.0
+Bundle-SymbolicName: com.gcsf.books.help;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: %Bundle-Vendor.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.help.webapp;bundle-version="3.4.0",
+ org.eclipse.help.ui;bundle-version="3.4.0"
+Bundle-Localization: resource/localization/plugin

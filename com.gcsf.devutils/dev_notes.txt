@@ -1,0 +1,71 @@
+23-10-2008
+----------
+1. The search and the loans will be packed in separate features 
+(most likely the existing search plugin will need a second plugin named search engine
+... an extension point that automatically indexes the books on insert/update/delete
+is necessary??)
+3. TODO - create fragments for the localization of different stuff (help plugin
+and where is applicable).
+
+21-11-2008
+----------
+2. the localization of the plugins must be improved.
+3. add branding information to all the plugins
+4. evaluate if the additional languages should be deployed as fragments
+
+
+
+
+
+
+initial ideas not sorted so far :( ... should I edit this file with a WYSIWYG
+---------------------------------------------------------------
+deploy structure:
+- base dir
+    - config --> log4j configuration file and other configuration file stuff
+    - data --> aici va fi instalata baza de date
+    - features --> eclipse like folder
+    - lib --> cel mai probabil aici vor fi instalate jar-urile necesare ... desi cred ca vor fi copiate in plugins
+    - jre --> aici va fi instalat jre-ul ... in cazul in care nu exista deja pe calculator
+    - plugins --> eclipse like folder
+    - resources --> the folder for resources
+
+Notes:
+0. Executabilul va fi locat in base dir --> eclipse like
+1. In base dir trebuie sa existe si un fisier .lnk si un fisier .ico --> copiate foarte probabil dupa PDE build
+2. La un-install-ul din NSIS trebuie sa existe un check box pentru a face back-up-ul bazei de date. Uninstall-ul silent va face sau nu back-up la baza de date ??
+3. Install-ul va avea un pas pentru a copia o baza de date deja existenta ... eventual un check de versiune la baza de date ... trebuie de vazut cum se realizeaza asta.
+4. Update-ul aplicatiei se face fie prin NSIS ... optiunea care nu e agreeata ... fie prin update-ul de eclipse (we need an update site) ... varianta agreeata.
+5. Trebuie facuta o lista de feature-uri care vor fi incluse in versiunile aplicatiei. Pentru fiecare versiune a aplicatiei se vor detalia cate milestone-uri vor exista si ce va contine fiecare milestone.
+
+
+Increment 1 - application prototype
+    - features per increment decisions ... consider them the System and Product Requirements stuff
+    - application build (PDE + NullSoft installer) ... basic PDE and Nullsoft Installer stuff including the deployment part
+    - basic GUI design (no database features) ... more like a sketch-up and testground for second increment
+        - use predefined filters for the folders view
+        - use predefined filters for all the views
+    - book model inside the application ... the baseground for the second increment
+    - basic UML desing
+    - version numbering decision ... how to number the builds and how to tag them
+    - version control sistem for source files ... currently using Google Code  ... does it need to be changed?
+        If yes, with what and why?
+    - documentation plan ... what documents need to be written and in what increment to include them?
+    - project management decisions ... who will be involved and with what role
+Increment 2 - functional application
+    - basic database features (insert/update/delete ... each one in separate sub-increment)
+    - application help
+    - NullSoft installer update for the application
+    - give the user the ability to create his own filters for the folders view (probably keep them in a file stored on the computer ... or any better idea)
+Increment 3 - advanced functions in the application
+    - database search
+    - application update via update site
+    - application auto-update via provisioning system (p2)
+    - statistics on the books (price, read/unread, and others)
+    - add key bindings (keyboard shortcuts) for different actions performed by the user
+Increment 4 - the web related one
+    - offer the posibility during the install/the start-up of the application to choose the desired database location (desktop or web based)
+    - use external storage for database (e.g. using Google API's or similar)
+    - support for Amazon and other book sites (more details needed to be provided)
+    - export to file for database (e.g. comma-separated, xml, xls, and others)
+

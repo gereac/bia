@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="engineStartup" name="Collection Engine Startup" schema="schema/engineStartup.exsd"/>
+   <extension-point id="engineShutdown" name="Collection Engine Shutdown" schema="schema/engineShutdown.exsd"/>
+   <extension-point id="engineApplication" name="Application based on Collection Engine" schema="schema/engineApplication.exsd"/>   
+   <extension
+         point="com.gcsf.books.engine.engineStartup">
+      <startup
+            class="com.gcsf.books.engine.startup.EngineStartup"
+            level="1">
+      </startup>
+   </extension>
+
+</plugin>

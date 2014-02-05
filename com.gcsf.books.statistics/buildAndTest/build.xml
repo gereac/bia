@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<project name="com.gcsf.books.statistics" default="Run-All">
+	<property name="THIS_ID" value="com.gcsf.books.statistics" />
+	<dirname property="dir.antfile" file="${ant.file}" />
+	<property name="dir.Base" value="${dir.antfile}/../.." />
+	<property file="com.gcsf.books.build/buildAndTest/build.properties" />
+	<!-- <property file="com.gcsf.books.build/buildAndTest/include-classpath.xml " /> -->
+	<import file="${include.application.classpath}" />
+
+	<!-- Target: Run All -->
+	<!-- =============== -->
+	<target name="Run-All" depends="Clean-All" />
+
+
+	<!-- Target: Clean All -->
+	<!-- ================= -->
+	<target name="Clean-All">
+		<echo message="[${ant.project.name}] delete all: ${THIS_ID} ..." />
+		<delete dir="${classpath.com.gcsf.books.statistics}" />
+		<delete dir="${classtpath.com.gcsf.books.statistics}" />
+	</target>
+
+	<!-- Target: Check Code Style -->
+	<!-- ======================== -->
+	<target name="Check-Code-Style">
+		<echo message="[${ant.project.name}] check code style: ${THIS_ID} ..." />
+
+		<checkstyle config="${dir.Checkstyle.config}" failureProperty="checkstyle.failure" failOnViolation="false">
+			<formatter type="xml" tofile="${dir.Checkstyle.out}/${THIS_ID}.xml" />
+			<fileset dir="${srcpath.com.gcsf.books.statistics}" includes="**/*.java" />
+		</checkstyle>
+	</target>
+
+	<!-- Target: Coverage Instrumentation -->
+	<!-- ================================ -->
+	<target name="Coverage-Instrumentation">
+		<echo message="[${ant.project.name}] Coverage-Instrumentation : ${THIS_ID} ..." />
+
+		<emma enabled="${emma.enabled}">
+			<instr instrpath="${classpath.com.gcsf.books.statistics}" destdir="${dir.Emma.instr}" metadatafile="${emma.Coverage.Metadata.com.gcsf.books.statistics}" merge="true" />
+		</emma>
+	</target>
+
+	<!-- Target: Coverage Report -->
+	<!-- ======================= -->
+	<target name="Coverage-Report">
+		<echo message="[${ant.project.name}] coverage report: ${THIS_ID} ..." />
+
+		<emma enabled="${emma.enabled}">
+			<report sourcepathref="GCSF_APPLICATION_SRCPATH">
+				<fileset file="${emma.Coverage.Metadata.com.gcsf.books.statistics}" />
+				<fileset dir="${dir.Emma.coverage}">
+					<include name="**/*.emma" />
+					<include name="**/*.es" />
+				</fileset>
+
+				<html columns="${output.Emma.columns}" sort="${output.Emma.sort}" metrics="${emma.Coverage.Metrics.com.gcsf.books.statistics}" outfile="${emma.Coverage.Html.com.gcsf.books.statistics}" />
+			</report>
+		</emma>
+	</target>
+
+	<target name="PMD-Scan">
+		<echo message="[${ant.project.name}] PMD Scan: ${THIS_ID} ..." />
+		<pmd shortFilenames="true">
+			<ruleset>rulesets/favorites.xml</ruleset>
+			<ruleset>basic</ruleset>
+			<formatter type="html" toFile="${dir.PMD.out}/${THIS_ID}_pmd_report.html" />
+			<fileset dir="${srcpath.com.gcsf.books.statistics}" includes="**/*.java" />
+		</pmd>
+	</target>
+
+	<target name="FindBugs-Scan">
+		<echo message="[${ant.project.name}] FindBugs Scan: ${THIS_ID} ..." />
+		<findbugs home="${dir.FindBugs.lib}" output="xml" outputFile="${dir.FindBugs.out}/${THIS_ID}_findbugs.xml" failOnError="true" jvmArgs="-Xmx512M" debug="false">
+			<auxClasspath refid="APPLICATION_PROJECTS_CLASSPATH" />
+			<auxClasspath refid="PLATFORM_CLASSPATH_FINDBUGS" />
+			<class location="${classpath.com.gcsf.books.statistics}" />
+		</findbugs>
+	</target>
+
+</project>

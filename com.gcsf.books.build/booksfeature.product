@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="BiaApp" id="com.gcsf.books.product" application="com.gcsf.books.application" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/com.gcsf.books.branding/product_logo.gif"/>
+      <text>
+         %aboutText
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+      <win32>/com.gcsf.books/config.ini</win32>
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-nl en -consoleLog</programArgs>
+      <vmArgs>-Dosgi.requiredJavaVersion=1.5</vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/com.gcsf.books.branding/icon16x16.gif" i32="/com.gcsf.books.branding/icon32x32.gif"/>
+
+   <splash
+      location="com.gcsf.books.branding"
+      startupProgressRect="0,270,455,13"
+      startupMessageRect="10,240,420,20"
+      startupForegroundColor="80FF80" />
+   <launcher name="BiaApp">
+      <solaris/>
+      <win useIco="false">
+         <bmp
+            winSmallHigh="/com.gcsf.books.branding/bia_016_32.bmp"
+            winSmallLow="/com.gcsf.books.branding/bia_016_8.bmp"
+            winMediumHigh="/com.gcsf.books.branding/bia_032_32.bmp"
+            winMediumLow="/com.gcsf.books.branding/bia_032_8.bmp"
+            winLargeHigh="/com.gcsf.books.branding/bia_048_32.bmp"
+            winLargeLow="/com.gcsf.books.branding/bia_048_8.bmp"/>
+      </win>
+   </launcher>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="com.gcsf.books.feature.base" version="1.0.0"/>
+      <feature id="com.gcsf.books.feature.statistics" version="1.0.0"/>
+      <feature id="com.gcsf.books.feature.loans" version="1.0.0"/>
+      <feature id="com.gcsf.books.feature.search" version="1.0.0"/>
+   </features>
+
+
+</product>

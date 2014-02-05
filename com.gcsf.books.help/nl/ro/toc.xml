@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Aplicatie de invetariere a cartilor" topic="html/general.html">
+	<topic label="Pentru inceput"  href="html/general.html"> 
+	</topic>
+ <topic href="html/userdoc.html" label="Manualul utilizatorului">
+ </topic>
+ <topic href="html/license.html" label="Licenta">
+ </topic>
+</toc>

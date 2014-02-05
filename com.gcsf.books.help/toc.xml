@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Books Inventory Application" topic="html/general.html">
+	<topic label="Getting started"  href="html/general.html"> 
+	</topic>
+ <topic href="html/userdoc.html" label="User Manual">
+ </topic>
+ <topic href="html/license.html" label="License">
+ </topic>
+</toc>

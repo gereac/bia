@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Books date="30.05.08 - 16:53" version="2">
+	<ShelvesList>
+		<Shelf>Test Shelf</Shelf>
+	</ShelvesList>
+	<BooksList>
+		<Book>
+			<BookTitle>Test Book Title 1</BookTitle>
+			<BookShortDescription></BookShortDescription>
+			<BookAuthors>
+				<Author name="author display name n1"/>
+			</BookAuthors>
+			<BookLendingHistory currentlyLended="true">
+				<Lender>
+					John Doe
+					<LendingDate>30.05.08 - 16:53</LendingDate>
+					<ReturningDate>30.05.09 - 16:53</ReturningDate>
+				</Lender>
+			</BookLendingHistory>
+			<BookPublisher publisherName="Test Publisher Name"></BookPublisher>
+			<BookYear>2000</BookYear>
+			<BookCopyrights></BookCopyrights>
+			<BookRead readingInfo="true">
+				<StartReadingDate>30.05.05 - 16:53</StartReadingDate>
+				<EndReadingDate>30.05.06 - 16:53</EndReadingDate>
+			</BookRead>
+			<BookPurchase>
+				<Price></Price>
+				<Currency></Currency>
+				<PurchaseDate></PurchaseDate>
+				<PurchaseInfo></PurchaseInfo>
+			</BookPurchase>
+			<BookISBN10>ISBN101</BookISBN10>
+			<BookISBN13>ISBN131</BookISBN13>
+			<BookLanguage>TestLanguage</BookLanguage>
+			<BookPageNo></BookPageNo>
+			<BookDimensions></BookDimensions>
+			<BookRemarks></BookRemarks>
+		</Book>
+		<Book>
+            <BookTitle>Test Book Title 2</BookTitle>
+            <BookShortDescription></BookShortDescription>
+            <BookAuthors>
+                <Author name="author display name n1"/>
+            </BookAuthors>
+            <BookLendingHistory currentlyLended="true">
+                <Lender>
+                    John Doe
+                    <LendingDate>30.05.08 - 16:53</LendingDate>
+                    <ReturningDate>30.05.09 - 16:53</ReturningDate>
+                </Lender>
+            </BookLendingHistory>
+            <BookPublisher publisherName="Test Publisher Name"></BookPublisher>
+            <BookYear>2001</BookYear>
+            <BookCopyrights></BookCopyrights>
+            <BookRead readingInfo="true">
+                <StartReadingDate>30.05.05 - 16:53</StartReadingDate>
+                <EndReadingDate>30.05.06 - 16:53</EndReadingDate>
+            </BookRead>
+            <BookPurchase>
+                <Price></Price>
+                <Currency></Currency>
+                <PurchaseDate></PurchaseDate>
+                <PurchaseInfo></PurchaseInfo>
+            </BookPurchase>
+            <BookISBN10>ISBN102</BookISBN10>
+            <BookISBN13>ISBN132</BookISBN13>
+            <BookLanguage>TestLanguage</BookLanguage>
+            <BookPageNo></BookPageNo>
+            <BookDimensions></BookDimensions>
+            <BookRemarks></BookRemarks>
+        </Book>
+        <Book>
+            <BookTitle>Test Book Title 3</BookTitle>
+            <BookShortDescription></BookShortDescription>
+            <BookAuthors>
+                <Author name="author display name n2"/>
+            </BookAuthors>
+            <BookLendingHistory currentlyLended="true">
+                <Lender>
+                    John Doe
+                    <LendingDate>30.05.08 - 16:53</LendingDate>
+                    <ReturningDate>30.05.09 - 16:53</ReturningDate>
+                </Lender>
+            </BookLendingHistory>
+            <BookPublisher publisherName="Test Publisher Name"></BookPublisher>
+            <BookYear>2002</BookYear>
+            <BookCopyrights></BookCopyrights>
+            <BookRead readingInfo="true">
+                <StartReadingDate>30.05.05 - 16:53</StartReadingDate>
+                <EndReadingDate>30.05.06 - 16:53</EndReadingDate>
+            </BookRead>
+            <BookPurchase>
+                <Price></Price>
+                <Currency></Currency>
+                <PurchaseDate></PurchaseDate>
+                <PurchaseInfo></PurchaseInfo>
+            </BookPurchase>
+            <BookISBN10>ISBN103</BookISBN10>
+            <BookISBN13>ISBN133</BookISBN13>
+            <BookLanguage>TestLanguage</BookLanguage>
+            <BookPageNo></BookPageNo>
+            <BookDimensions></BookDimensions>
+            <BookRemarks></BookRemarks>
+        </Book>
+        <Book>
+            <BookTitle>Test Book Title 4</BookTitle>
+            <BookShortDescription></BookShortDescription>
+            <BookAuthors>
+                <Author name="author display name n4"/>
+            </BookAuthors>
+            <BookLendingHistory currentlyLended="true">
+                <Lender>
+                    John Doe
+                    <LendingDate>30.05.08 - 16:53</LendingDate>
+                    <ReturningDate>30.05.09 - 16:53</ReturningDate>
+                </Lender>
+            </BookLendingHistory>
+            <BookPublisher publisherName="Test Publisher Name"></BookPublisher>
+            <BookYear>2003</BookYear>
+            <BookCopyrights></BookCopyrights>
+            <BookRead readingInfo="true">
+                <StartReadingDate>30.05.05 - 16:53</StartReadingDate>
+                <EndReadingDate>30.05.06 - 16:53</EndReadingDate>
+            </BookRead>
+            <BookPurchase>
+                <Price></Price>
+                <Currency></Currency>
+                <PurchaseDate></PurchaseDate>
+                <PurchaseInfo></PurchaseInfo>
+            </BookPurchase>
+            <BookISBN10>ISBN104</BookISBN10>
+            <BookISBN13>ISBN134</BookISBN13>
+            <BookLanguage>TestLanguage</BookLanguage>
+            <BookPageNo></BookPageNo>
+            <BookDimensions></BookDimensions>
+            <BookRemarks></BookRemarks>
+        </Book>
+	</BooksList>
+	<AuthorsList>
+		<Author name="author display name n1">
+			<FirstName>Author First Name n1</FirstName>
+			<MiddleName>Author Middle Name n1</MiddleName>
+			<LastName>Author Last Name n1</LastName>
+		</Author>
+		<Author name="author display name n2">
+            <FirstName>Author First Name n2</FirstName>
+            <MiddleName>Author Middle Name n2</MiddleName>
+            <LastName>Author Last Name n2</LastName>
+        </Author>
+        <Author name="author display name n3">
+            <FirstName>Author First Name n3</FirstName>
+            <MiddleName>Author Middle Name n3</MiddleName>
+            <LastName>Author Last Name n3</LastName>
+        </Author>
+        <Author name="author display name n4">
+            <FirstName>Author First Name n4</FirstName>
+            <MiddleName>Author Middle Name n4</MiddleName>
+            <LastName>Author Last Name n4</LastName>
+        </Author>
+	</AuthorsList>
+	<PersonsList></PersonsList>
+</Books>

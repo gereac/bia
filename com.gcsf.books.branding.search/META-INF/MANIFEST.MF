@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BIA - Search
+Bundle-SymbolicName: com.gcsf.books.branding.search
+Bundle-Version: 1.0.0
+Bundle-Localization: resource/localization/plugin
+Bundle-Vendor: GC Software Factory

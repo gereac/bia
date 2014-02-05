@@ -1,0 +1,90 @@
+body {
+  margin:           10px;
+  background-color: #FFFFFF;
+
+  font-family:      Arial, Helvetica, Courier;
+  font-size:        12px;
+  font-weight:      normal;
+}
+
+p.overview {
+  font-weight: bold;
+  font-size:   16px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.ignore {
+  color: green;
+}
+
+.info {
+  color: blue;
+}
+
+.warning {
+  color: orange;
+}
+
+.error {
+  color: red;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+td.component {
+  padding-right: 20px;
+}
+
+th.ignore, td.ignore {
+  width: 100px;
+  border-left: 1px solid black;
+}
+
+th.info, td.info {
+  width: 100px;
+}
+
+th.warning, td.warning {
+  width: 100px;
+}
+
+th.error, td.error {
+  width: 100px;
+}
+
+td.total {
+  font-weight: bold;
+  border-top:  2px solid black;
+}
+
+td.totalignore {
+  color:       green;
+  font-weight: bold;
+  border-top:  2px solid black;
+}
+
+td.totalinfo {
+  color:       blue;
+  font-weight: bold;
+  border-top:  2px solid black;
+}
+
+td.totalwarning {
+  color:       orange;
+  font-weight: bold;
+  border-top:  2px solid black;
+}
+
+td.totalerror {
+  color:       red;
+  font-weight: bold;
+  border-top:  2px solid black;
+}
+

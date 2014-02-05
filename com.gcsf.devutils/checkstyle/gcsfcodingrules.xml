@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		This configuration file was written by the eclipse-cs plugin
+		configuration editor
+	-->
+	<!--
+		Checkstyle-Configuration: GC Software Factory Codingrules Description:
+		GC Software Factory Codingrules
+	-->
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+	<property name="severity" value="info" />
+	<property name="localeCountry" value="us" />
+	<property name="localeLanguage" value="en" />
+	<module name="TreeWalker">
+		<property name="severity" value="warning" />
+		<property name="tabWidth" value="2" />
+		<module name="Indentation">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks correct indentation of Java Code. Use Ctrl-I for correct indentation" />
+			<property name="id" value="HMI-L01" />
+			<property name="basicOffset" value="2" />
+			<property name="caseIndent" value="2" />
+		</module>
+		<module name="MultipleVariableDeclarations">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that each variable declaration is in its own statement and on its own line" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P01" />
+		</module>
+		<module name="DeclarationOrder">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="According to Code Conventions for the Java Programming Language , the parts of a class or interface declaration should appear in a given order" />
+			<property name="id" value="HMI-P02" />
+		</module>
+		<module name="JavadocType">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks Javadoc comments for class and interface definitions" />
+			<property name="severity" value="info" />
+			<property name="id" value="HMI-C01" />
+			<property name="scope" value="public" />
+		</module>
+		<module name="JavadocMethod">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks the Javadoc of a public method or constructor" />
+			<property name="severity" value="info" />
+			<property name="id" value="HMI-C02" />
+			<property name="scope" value="public" />
+			<property name="allowMissingPropertyJavadoc" value="true" />
+			<property name="logLoadErrors" value="true" />
+			<property name="suppressLoadErrors" value="true" />
+		</module>
+		<module name="JavadocVariable">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that public variables have Javadoc comments" />
+			<property name="severity" value="info" />
+			<property name="id" value="HMI-C03" />
+			<property name="scope" value="public" />
+		</module>
+		<module name="NeedBraces">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for braces around code blocks" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-B01" />
+		</module>
+		<module name="EmptyBlock">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for empty blocks - at least text required" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-B02" />
+			<property name="option" value="text" />
+		</module>
+		<module name="EmptyBlock">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for empty blocks - catch blocks without statements" />
+			<property name="severity" value="info" />
+			<property name="id" value="HMI-B03" />
+			<property name="tokens" value="LITERAL_CATCH" />
+		</module>
+		<module name="MissingSwitchDefault">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that switch statement has &quot;default&quot; clause" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P03" />
+		</module>
+		<module name="LineLength">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for  lines longer than 160 characters" />
+			<property name="id" value="HMI-S01" />
+			<property name="ignorePattern" value="^ *\*" />
+			<property name="max" value="160" />
+			<property name="tabWidth" value="2" />
+		</module>
+		<module name="MethodLength">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for methods and constructors longer than 150 lines" />
+			<property name="id" value="HMI-S03" />
+			<property name="countEmpty" value="false" />
+		</module>
+		<module name="ParameterNumber">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks the number of parameters of a method or constructor greater than 5" />
+			<property name="id" value="HMI-S04" />
+			<property name="max" value="5" />
+		</module>
+		<module name="LocalFinalVariableName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that local final variables follow naming convention:" />
+			<property name="id" value="HMI-N01" />
+		</module>
+		<module name="LocalVariableName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that local variables follow naming convention:" />
+			<property name="id" value="HMI-N02" />
+		</module>
+		<module name="MemberName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that member variables (non-static fields) follow naming convention:" />
+			<property name="id" value="HMI-N03" />
+			<property name="format" value="^my[A-Z][a-zA-Z0-9]*$" />
+		</module>
+		<module name="StaticVariableName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that static variables (static, non-final fields) follow naming convention:" />
+			<property name="id" value="HMI-N04" />
+			<property name="format" value="^our[A-Z][a-zA-Z0-9]*$" />
+		</module>
+		<module name="ConstantName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that constants (static final fields) variables follow naming convention:" />
+			<property name="id" value="HMI-N05" />
+			<property name="format"
+				value="^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$|^our[A-Z][a-zA-Z0-9]*$" />
+		</module>
+		<module name="ParameterName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that parameter names follow naming convention:" />
+			<property name="id" value="HMI-N06" />
+			<property name="format" value="^a[n]{0,1}[A-Z][a-zA-Z0-9]*$|^args$" />
+		</module>
+		<module name="MethodName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that method names follow naming convention:" />
+			<property name="id" value="HMI-N07" />
+		</module>
+		<module name="PackageName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that package names follow naming convention:" />
+			<property name="id" value="HMI-N08" />
+			<property name="format" value="^[a-z]+(\.[a-z_][a-z0-9_]*)*$" />
+		</module>
+		<module name="TypeName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that class names follow naming convention:" />
+			<property name="id" value="HMI-N10" />
+			<property name="tokens" value="CLASS_DEF" />
+		</module>
+		<module name="TypeName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that interface names follow naming convention:" />
+			<property name="id" value="HMI-N11" />
+			<property name="format" value="^I[A-Z][a-zA-Z0-9]*$" />
+			<property name="tokens" value="INTERFACE_DEF" />
+		</module>
+		<module name="AbstractClassName">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that abstract class names follow naming convention:" />
+			<property name="id" value="HMI-N12" />
+			<property name="format" value="^[A-Z][a-zA-Z0-9]*$" />
+		</module>
+		<module name="ModifierOrder">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that the order of modifiers conforms to the suggestions in the Java Language specification" />
+			<property name="id" value="HMI-M01" />
+		</module>
+		<module name="DefaultComesLast">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Check that the default is after all the cases in a switch statement" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P04" />
+		</module>
+		<module name="FallThrough">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for fall through in switch statements Finds locations where a case contains Java code - but lacks a break, return, throw or continue statement. The check honores special comments to supress the warning. By default the text &quot;fallthru&quot;, &quot;fall through&quot;, &quot;fallthrough&quot;, &quot;falls through&quot; and &quot;fallsthrough&quot; are recognized (case sensitive)." />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P05" />
+		</module>
+		<module name="IllegalImport">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for imports from a set of illegal packages:" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-I01" />
+			<property name="illegalPkgs" value="com.sun.media" />
+		</module>
+		<module name="IllegalImport">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for imports from a set of illegal packages:" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-I02" />
+			<property name="illegalPkgs" value="java.lang.reflect" />
+		</module>
+		<module name="AvoidStarImport">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that there are no import statements that use the * notation" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-I03" />
+		</module>
+		<module name="RedundantImport">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for redundant import statements" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-I04" />
+		</module>
+		<module name="UnusedImports">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for unused import statements" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-I05" />
+		</module>
+		<module name="EmptyStatement">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Detects empty statements (standalone ;)" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P06" />
+		</module>
+		<module name="HiddenField">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that a local variable or a parameter does not shadow a field that is defined in the same class" />
+			<property name="id" value="HMI-P07" />
+		</module>
+		<module name="MissingCtor">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that classes (except abtract one) define a ctor and don't rely on the default one" />
+			<property name="id" value="HMI-P08" />
+		</module>
+		<module name="ModifiedControlVariable">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Check for ensuring that for loop control variables are not modified inside the for block" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P09" />
+		</module>
+		<module name="PackageDeclaration">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Ensure a class is has a package declaration" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P10" />
+		</module>
+		<module name="ReturnCount">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Restricts the number of return statements to 2" />
+			<property name="severity" value="info" />
+			<property name="id" value="HMI-P11" />
+		</module>
+		<module name="StringLiteralEquality">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that string literals are not used with == or !=" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-P12" />
+		</module>
+		<module name="UpperEll">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks that long constants are defined with an upper ell. e.g '1000L'" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-L02" />
+		</module>
+		<module name="IllegalCatch">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Catching java.lang.Exception, java.lang.Error or java.lang.RuntimeException is to be used for error handling only" />
+			<property name="severity" value="info" />
+			<property name="id" value="HMI-P13" />
+		</module>
+		<module name="TodoComment">
+			<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+				value="Checks for TODO: comments" />
+			<property name="severity" value="error" />
+			<property name="id" value="HMI-L03" />
+		</module>
+	</module>
+	<module name="FileLength">
+		<metadata name="com.atlassw.tools.eclipse.checkstyle.comment"
+			value="Checks for source files longer than 1500 lines" />
+		<property name="id" value="HMI-S02" />
+		<property name="max" value="1500" />
+	</module>
+</module>

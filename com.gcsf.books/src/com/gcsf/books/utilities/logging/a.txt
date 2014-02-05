@@ -1,0 +1,3 @@
+test de citire
+dintr-un fisier
+text

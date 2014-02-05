@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=myViewsMenu">
+         <menu
+               id="myLoansMenu"
+               label="%loans"
+               mnemonic="L"
+               tooltip="Loans related operations">
+            <command
+                  commandId="com.gcsf.books.loans.command.loanbook"
+                  icon="resource/icons/book_next.png"
+                  label="Loan Book"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.gcsf.books.loans.command.returnbook"
+                  icon="resource/icons/book_previous.png"
+                  label="Return Book"
+                  style="push">
+            </command>
+            <separator
+                  name="com.gcsf.books.loans.separator"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.gcsf.books.loans.command.manageloans"
+                  icon="resource/icons/books_brown.png"
+                  label="%manageloans"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.gcsf.books.loans.command.loansettings"
+                  icon="resource/icons/book_key.png"
+                  label="Loan Settings"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="com.gcsf.books.toolbar.loans">
+            <command
+                  commandId="com.gcsf.books.loans.command.loanbook"
+                  icon="resource/icons/book_next.png"
+                  label="Loan Book"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.gcsf.books.loans.command.returnbook"
+                  icon="resource/icons/book_previous.png"
+                  label="Return Book"
+                  style="push">
+            </command>
+            <separator
+                  name="com.gcsf.books.loans.separator.loansToolbar.manageLoansSeparator"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.gcsf.books.loans.command.manageloans"
+                  icon="resource/icons/books_brown.png"
+                  label="%manageloans"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.gcsf.books.loans.preferences.pages.LoanPreferencesPage"
+            id="com.gcsf.books.loans.preferences.loanPreferencesPage"
+            name="%loan">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.gcsf.books.loans.preferences.LoansPreferencesInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            description="Commands used in loans operations"
+            id="com.gcsf.books.loans.commands.category.loans"
+            name="Loans category">
+      </category>
+      <command
+            categoryId="com.gcsf.books.loans.commands.category.loans"
+            defaultHandler="com.gcsf.books.loans.handlers.LoanBookHandler"
+            id="com.gcsf.books.loans.command.loanbook"
+            name="Loan Book">
+      </command>
+      <command
+            categoryId="com.gcsf.books.loans.commands.category.loans"
+            defaultHandler="com.gcsf.books.loans.handlers.ReturnBookHandler"
+            id="com.gcsf.books.loans.command.returnbook"
+            name="Return Book">
+      </command>
+      <command
+            categoryId="com.gcsf.books.loans.commands.category.loans"
+            defaultHandler="com.gcsf.books.loans.handlers.ManageLoansHandler"
+            id="com.gcsf.books.loans.command.manageloans"
+            name="Manage Loans">
+      </command>
+      <command
+            categoryId="com.gcsf.books.loans.commands.category.loans"
+            defaultHandler="com.gcsf.books.loans.handlers.LoanSettingsHandler"
+            id="com.gcsf.books.loans.command.loansettings"
+            name="Loan Setings">
+      </command>
+   </extension>
+
+</plugin>

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Engine Plug-in
+Bundle-SymbolicName: com.gcsf.books.engine;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: GC Software Factory
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: com.gcsf.books.engine,
+ com.gcsf.books.engine.logging,
+ com.gcsf.books.engine.startup,
+ com.gcsf.books.engine.supervision,
+ com.gcsf.books.engine.util
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.ui;bundle-version="3.5.0",
+ org.apache.log4j;bundle-version="1.2.13",
+ org.junit4;bundle-version="4.5.0";resolution:=optional
+Bundle-Activator: com.gcsf.books.engine.EngineActivator

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This program and the accompanying materials are made available
+    under the terms of the Eclipse Public License v1.0 which
+    accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+-->
+<project name="deployment" default="deployBuild">
+	<property file="buildinfo.properties" />
+	<property name="temp.dir" value="C:/Temp/${env.USERNAME}" />
+	<property name="nsis.build.dir" value="${buildDirectory}/NSISBuild" />
+
+	<!-- <target name="deployBuild" depends="deployPDEBuild,createDemo,configFiles,logFolder">
+	</target> -->
+	<target name="deployBuild" depends="deployPDEBuild,createDemo,configFiles,logFolder,launchExec">
+	</target>
+	
+	<target name="launchExec">
+		<exec executable="${nsis.build.dir}/BiaApp.exe">
+		</exec>
+	</target>
+
+	<target name="deployPDEBuild">
+		<echo message="++++++++++++++++++++" />
+		<echo message="starting the deployment of the pde build ... " />
+		<delete dir="${temp.dir}" />
+		<mkdir dir="${temp.dir}/sw" />
+		<echo message="unpack application files to temporary folder ..." />
+		<unzip src="${buildDirectory}/${buildLabel}/${buildId}-${baseos}.${basews}.${basearch}.zip" dest="${temp.dir}/sw" />
+		<echo message="cleaning the build directory ..." />
+		<delete includeemptydirs="true" verbose="false">
+			<fileset dir="${buildDirectory}">
+				<!-- <include name="**" /> -->
+				<exclude name="**/logs/*.*" />
+			</fileset>
+		</delete>
+		<echo message="creating the folder for the NSIS build ..." />
+		<mkdir dir="${nsis.build.dir}" />
+		<echo message="populating the folder for NSIS build ..." />
+		<move file="${temp.dir}/sw/${collectingFolder}" tofile="${nsis.build.dir}" />
+
+		<echo message="finished the deployment of the pde build ... " />
+		<echo message="---------------------" />
+
+	</target>
+
+	<target name="createDemo" depends="deployPDEBuild" description="Creates the demo database">
+		<mkdir dir="${nsis.build.dir}/data" />
+		<!-- replace this with the generation of demo file -->
+		<!-- <copy todir="${nsis.build.dir}/data" file="../com.gcsf.books/books.xml" /> -->
+		<java dir="." classname="com.gcsf.books.utilities.DemoCollectionGenerator" failonerror="true" fork="true">
+			<arg value="-version=100" />
+			<arg value="-filename=books.xml" />
+			<arg value="-path=${nsis.build.dir}/data" />
+			<classpath>
+				<fileset dir="${nsis.build.dir}/plugins">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</java>
+		<!-- replace this with the generation of demo file -->
+	</target>
+
+	<target name="configFiles" depends="createDemo" description="Copy the configuration files">
+		<mkdir dir="${nsis.build.dir}/config" />
+		<!-- TODO add the configuration files -->
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: logFolder                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="logFolder" description="Creates the log folder">
+		<mkdir dir="${nsis.build.dir}/log" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: -createInstaller                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="-createInstaller">
+		<exec dir="../nsis" executable="C:\Program Files\NSIS\makensis.exe">
+			<arg line=" &quot;/DEXE_VERSION=${build.version}.${build.number}&quot; /DNSIS_OUTPATH=${buildDirectory}/installer bia.nsi" />
+		</exec>
+	</target>
+
+</project>

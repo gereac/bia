@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+      <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.gcsf.book.application"
+            name="%productName">
+         <property
+               name="aboutText"
+               value="%productBlurb"/>
+         <property
+               name="aboutImage"
+               value="product_lg.gif"/>
+         <property
+               name="startupMessageRect"
+               value="10,240,420,20"/>
+         <property
+               name="startupForegroundColor"
+               value="80FF80"/>
+         <property
+               name="startupProgressRect"
+               value="0,270,455,13"/>
+         <property
+               name="windowImages"
+               value="icon16x16.gif,icon32x32.gif">
+         </property>
+         <property
+               name="appName"
+               value="%productName">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandlerProductBinding
+            productId="com.gcsf.books.product"
+            splashId="com.gcsf.books.splashHandler">
+      </splashHandlerProductBinding>
+   </extension>
+
+</plugin>

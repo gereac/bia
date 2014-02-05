@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<project>
+
+	<condition property="isWindows">
+		<os family="windows" />
+	</condition>
+	<condition property="isLinux">
+		<os name="Linux" />
+	</condition>
+
+	<!-- <path id="PLATFORM_RESOURCEPATH">
+    <path refid="PLATFORM_CLASSPATH" />
+  </path>
+
+  <path id="PLATFORM_CLASSTPATH">
+    <path refid="PLATFORM_CLASSPATH" />
+    <pathelement location="${classpath.junit}"/>
+    <fileset dir="${dir.platform.testlibs}">
+      <include name="*.jar"/>
+    </fileset>
+  </path> -->
+
+	<path id="PLATFORM_CLASSPATH">
+		<fileset dir="${dir.TargetPlatform.DevPlugins}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${dir.TargetPlatform}/plugins">
+			<include name="*.jar" />
+			<exclude name="*win32*" if="isLinux" />
+			<exclude name="*linux*" if="isWindows" />
+			<exclude name="*macos*" />
+			<exclude name="*solaris*" />
+			<exclude name="*aix*" />
+			<exclude name="*hpux*" />
+		</fileset>
+	</path>
+
+	<path id="PLATFORM_CLASSPATH_FINDBUGS">
+		<fileset dir="${dir.TargetPlatform.DevPlugins}">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${dir.TargetPlatform}/plugins">
+			<include name="*.eclipse.core*.jar" />
+			<include name="*.eclipse.ui*.jar" />
+			<include name="*.eclipse.swt*.jar" />
+			<include name="*.eclipse.jface*.jar" />
+			<include name="*.eclipse.jface.text*.jar" />
+			<include name="*.eclipse.equinox*.jar" />
+			<include name="*.osgi*.jar" />
+			<include name="*.ibm.icu*.jar" />
+			<include name="*.eclipse.osgi*.jar" />
+			<include name="*apache.commons*.jar" />
+			<exclude name="*win32*" if="isLinux" />
+			<exclude name="*linux*" if="isWindows" />
+			<exclude name="*macos*" />
+			<exclude name="*solaris*" />
+			<exclude name="*aix*" />
+			<exclude name="*hpux*" />
+		</fileset>
+	</path>
+
+	<path id="GCSF_APPLICATION_SRCPATH">
+		<pathelement path="${srcpath.com.gcsf.books}" />
+		<pathelement path="${srcpath.com.gcsf.books.engine}" />
+		<pathelement path="${srcpath.com.gcsf.books.language}" />
+		<pathelement path="${srcpath.com.gcsf.books.loans}" />
+		<pathelement path="${srcpath.com.gcsf.books.search}" />
+		<pathelement path="${srcpath.com.gcsf.books.statistics}" />
+	</path>
+
+	<!-- <path id="APPLICATION_RESOURCEPATH">
+    <pathelement path="${dir.ApplicationUtils}" />
+    <pathelement path="${dir.BaseGraphicTransformation}" />
+	<pathelement path="${dir.CommonUtils}" />
+    <pathelement path="${dir.SBSCommunicationAndAdaptation}" />
+    <pathelement path="${dir.SbsArsAdapter}" />
+    <pathelement path="${dir.SBSComAdapterControl}" />
+    <pathelement path="${dir.SBSSafeComAdapterControl}" />
+    <pathelement path="${dir.SbsDikoAdapter}" />
+    <pathelement path="${dir.SbsDokuAdapter}" />
+    <pathelement path="${dir.SbsInterlockAdapter}" />
+    <pathelement path="${dir.SbsRpeAdapter}" />
+    <pathelement path="${dir.SbsTdsAdapter}" />
+    <pathelement path="${dir.GraphicTransformation}" />
+    <pathelement path="${dir.Operations}" />
+    <pathelement path="${dir.CommonsOperations}" />
+    <pathelement path="${dir.AlarmAndMessageAndHistory}" />
+    <pathelement path="${dir.TrainNumberInfo}" />
+    <pathelement path="${dir.ModelDebugger}" />
+    <pathelement path="${dir.ApplicationArea}" />
+    <pathelement path="${dir.SystemManagement}" />
+  </path>
+
+  <path id="APPLICATION_PROJECTS_CLASSTPATH">
+    <pathelement path="${classtpath.ApplicationUtils}" />
+    <pathelement path="${classtpath.BaseGraphicTransformation}" />
+    <pathelement path="${classtpath.SBSCommunicationAndAdaptation}" />
+    <pathelement path="${classtpath.SbsArsAdapter}" />
+    <pathelement path="${classtpath.SBSComAdapterControl}" />
+    <pathelement path="${classtpath.SBSSafeComAdapterControl}" />
+    <pathelement path="${classtpath.SbsDikoAdapter}" />
+    <pathelement path="${classtpath.SbsDokuAdapter}" />
+    <pathelement path="${classtpath.SbsInterlockAdapter}" />
+    <pathelement path="${classtpath.SbsRpeAdapter}" />
+    <pathelement path="${classtpath.SbsTdsAdapter}" />
+    <pathelement path="${classtpath.GraphicTransformation}" />
+    <pathelement path="${classtpath.Operations}" />
+    <pathelement path="${classtpath.CommonsOperations}" />
+    <pathelement path="${classtpath.AlarmAndMessageAndHistory}" />
+    <pathelement path="${classtpath.TrainNumberInfo}" />
+    <pathelement path="${classtpath.ModelDebugger}" />
+    <pathelement path="${classtpath.ApplicationArea}" />
+    <pathelement path="${classtpath.SystemManagement}" />
+  </path> -->
+
+	<path id="APPLICATION_PROJECTS_CLASSPATH">
+		<pathelement path="${classpath.com.gcsf.books}" />
+		<pathelement path="${classpath.com.gcsf.books.engine}" />
+		<pathelement path="${classpath.com.gcsf.books.language}" />
+		<pathelement path="${classpath.com.gcsf.books.loans}" />
+		<pathelement path="${classpath.com.gcsf.books.search}" />
+		<pathelement path="${classpath.com.gcsf.books.statistics}" />
+	</path>
+
+	<!--  <path id="APPLICATION_CLASSPATH">
+    <path refid="APPLICATION_PROJECTS_CLASSPATH" />
+    <fileset dir="${dir.SystemManagement}/lib">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${dir.TargetPlatform.AppPlugins}">
+      <include name="*.jar"/>
+      <exclude name="*win32*" if="isLinux"/>
+      <exclude name="*linux*" if="isWindows"/>
+      <exclude name="*macos*"/>
+      <exclude name="*solaris*"/>
+      <exclude name="*aix*"/>
+      <exclude name="*hpux*"/>
+    </fileset>
+  </path>
+
+  <path id="APPLICATION_CLASSTPATH">
+	<path refid="APPLICATION_CLASSPATH" />
+    <path refid="APPLICATION_PROJECTS_CLASSTPATH" />
+  </path> -->
+
+	<path id="CHECKSTYLE_CLASSPATH">
+		<pathelement location="${dir.Checkstyle.lib}/checkstyle-all-5.1.jar" />
+	</path>
+
+	<path id="PMD_CLASSPATH">
+		<pathelement location="${dir.PMD.lib}/pmd-4.2.5.jar" />
+	</path>
+
+	<path id="FINDBUGS_CLASSPATH">
+		<fileset dir="${dir.FindBugs.lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="DEVELOPMENT_CLASSPATH">
+		<!-- <fileset dir="${dir.TargetPlatform.DevPlugins}">
+        <include name="**/*.jar"/>
+    </fileset> -->
+		<pathelement path="${classpath.com.gcsf.devutils}" />
+	</path>
+
+	<path id="DEV_CLASSPATH">
+		<fileset dir="${dir.TargetPlatform.DevPlugins}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="EMMA_CLASSPATH">
+		<pathelement location="${dir.Emma.lib}/emma.jar" />
+		<pathelement location="${dir.Emma.lib}/emma_ant.jar" />
+		<pathelement location="${dir.Emma.instr}" />
+	</path>
+
+	<!-- ANT TASK DEFINITIONS -->
+	<taskdef resource="emma_ant.properties" classpathref="EMMA_CLASSPATH" />
+	<taskdef resource="checkstyletask.properties" classpathref="CHECKSTYLE_CLASSPATH" />
+	<typedef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="PMD_CLASSPATH" />
+	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpathref="FINDBUGS_CLASSPATH" />
+	<taskdef name="unionBugs" classname="edu.umd.cs.findbugs.anttask.UnionBugs" classpathref="FINDBUGS_CLASSPATH"/>
+
+</project>
